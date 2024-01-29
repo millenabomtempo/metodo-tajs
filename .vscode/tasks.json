@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "run-projec-tests",
+      "label": "run-project-tests",
       "type": "shell",
       "command": "bash",
       "args": [
@@ -15,7 +15,7 @@
       },
       "presentation": {
         "reveal": "always",
-        "panel": "shared",
+        "panel": "shared"
       },
       "problemMatcher": []
     }

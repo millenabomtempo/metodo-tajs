@@ -8,7 +8,7 @@
       "type": "node",
       "skipFiles": [
         "<node_internals>/**",
-        "${workspaceFolder}/**/node_modules/**/*,js"
+        "${workspaceFolder}/**/node_modules/**/*.js",
       ],
       "smartStep": true,
       "internalConsoleOptions": "openOnSessionStart",
