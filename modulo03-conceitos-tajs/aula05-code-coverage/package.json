@@ -1,0 +1,22 @@
+{
+  "name": "aula04-faketimers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch src/index.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --injectGlobals false test/",
+    "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --injectGlobals false --watchAll test/",
+    "test:debug": "node --experimental-vm-modules --inspect-brk node_modules/.bin/jest --runInBand --injectGlobals false --watchAll test/"
+  },
+  "keywords": [],
+  "author": "millenabomtempo",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": "v18.16.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
