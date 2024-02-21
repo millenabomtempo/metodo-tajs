@@ -2,14 +2,8 @@ import { it, expect, describe, beforeEach, jest } from "@jest/globals"
 import Task from "../src/task.js"
 
 describe('Task Test Suite', () => {
-  let _logMock;
   let _task
   beforeEach(() => {
-    _logMock = jest.spyOn(
-      console,
-      console.log.name
-    ).mockImplementation();
-
     _task = new Task()
   })
 
@@ -56,5 +50,30 @@ describe('Task Test Suite', () => {
     expect(tasks.at(1).fn).toHaveBeenCalled()
 
     jest.useRealTimers()
+  })
+
+  it('should show message when tasks list is finished', async () => {
+    jest.useFakeTimers()
+
+    // Arrange
+    const tasks = [
+      {
+        name: 'Task-Will-Run-In-5-Secs',
+        dueAt: new Date(Date.now() + 5000), // 5 secs
+        fn: jest.fn()
+      },
+    ]
+
+    // Act
+    _task.save(tasks.at(0))
+    _task.run(200) // 200ms
+
+    jest.advanceTimersByTime(6000)
+
+    // Assert
+    expect(_task.length).toEqual(undefined)
+
+    jest.useRealTimers()
+
   })
 })
